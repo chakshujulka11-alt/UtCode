@@ -1,0 +1,17 @@
+<svg width="320" height="260" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="260" fill="#1e1e1e"/>
+  <!-- hexagon outline, flat top/bottom, rounded joins (spec geometry, centered) -->
+  <path d="M130 20 L190 20 L215 67.5 L190 115 L130 115 L105 67.5 Z"
+        stroke="#D97757" stroke-width="3" stroke-linejoin="round" fill="none"/>
+  <!-- 6-pointed spark: 3 crossing lines, rounded caps -->
+  <line x1="160" y1="50" x2="160" y2="90" stroke="#D97757" stroke-width="4" stroke-linecap="round"/>
+  <line x1="143" y1="55" x2="177" y2="85" stroke="#D97757" stroke-width="4" stroke-linecap="round"/>
+  <line x1="177" y1="55" x2="143" y2="85" stroke="#D97757" stroke-width="4" stroke-linecap="round"/>
+  <!-- wordmark -->
+  <text x="160" y="160" text-anchor="middle" fill="#E0E0E0"
+        font-family="Inter, 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif"
+        font-size="24" font-weight="600" letter-spacing="-0.5">utcode</text>
+  <text x="160" y="186" text-anchor="middle" fill="#888888"
+        font-family="Inter, 'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif"
+        font-size="16" font-weight="400" letter-spacing="-0.2">v0.1.0</text>
+</svg>

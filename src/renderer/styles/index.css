@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --c-bg: 30 30 30;
+  --c-side: 24 24 24;
+  --c-canvas: 35 35 35;
+  --c-panel: 37 37 38;
+  --c-panel2: 47 47 49;
+  --c-edge: 58 58 58;
+  --c-accent: 217 119 87;
+  --c-accent2: 194 96 63;
+  --c-ink: 224 224 224;
+  --c-muted: 136 136 136;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  @apply bg-bg text-ink font-sans antialiased;
+  font-size: 14px;
+}
+
+::selection {
+  background: rgb(var(--c-accent) / 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--c-edge) / 1) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--c-edge));
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+button {
+  @apply transition-colors duration-200;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent2 active:scale-[0.99];
+  }
+  .btn-ghost {
+    @apply btn border border-edge bg-panel text-ink hover:bg-panel2;
+  }
+  .btn-accent-ghost {
+    @apply btn border border-accent/50 text-accent hover:bg-accent/10;
+  }
+  .input {
+    @apply w-full rounded-md border border-edge bg-panel px-2.5 py-1.5 text-sm text-ink placeholder:text-muted focus:outline-none focus:border-accent/70 focus:ring-1 focus:ring-accent/30;
+  }
+  .label {
+    @apply block text-[11px] font-semibold uppercase tracking-wider text-muted mb-1;
+  }
+  .panel {
+    @apply bg-panel border border-edge;
+  }
+  .section-label {
+    @apply flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted;
+  }
+}
+
+.md-body {
+  @apply break-words;
+  line-height: 1.75;
+}
+.md-body > *:first-child {
+  @apply mt-0;
+}
+.md-body p {
+  @apply my-2;
+}
+.md-body h1,
+.md-body h2,
+.md-body h3,
+.md-body h4 {
+  @apply font-semibold mt-4 mb-2 text-ink;
+}
+.md-body h1 { @apply text-lg; }
+.md-body h2 { @apply text-base; }
+.md-body h3 { @apply text-sm uppercase tracking-wide text-muted; }
+.md-body ul { @apply list-disc pl-6 my-2 space-y-1; }
+.md-body ol { @apply list-decimal pl-6 my-2 space-y-1; }
+.md-body a { @apply text-accent hover:underline; }
+.md-body code {
+  @apply rounded bg-panel2 px-1 py-0.5 font-mono text-[0.92em];
+}
+.md-body pre {
+  @apply my-2 overflow-x-auto rounded-lg border border-edge bg-canvas p-3 text-[13px] leading-relaxed;
+}
+.md-body pre code {
+  @apply bg-transparent p-0;
+}
+.md-body table {
+  @apply my-2 border-collapse text-[13px];
+}
+.md-body th, .md-body td {
+  @apply border border-edge px-2 py-1 text-left;
+}
+.md-body blockquote {
+  @apply my-2 border-l-2 border-accent/60 pl-3 text-muted;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@keyframes fileflash {
+  0% { background-color: rgb(var(--c-accent) / 0.4); }
+  100% { background-color: transparent; }
+}
+.fileflash {
+  animation: fileflash 1.6s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.pulse-dot {
+  animation: pulse-dot 1.1s ease-in-out infinite;
+}
